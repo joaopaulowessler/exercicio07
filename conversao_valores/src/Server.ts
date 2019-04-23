@@ -19,6 +19,7 @@ const rootDir = __dirname;
     logRequest: true,
     requestFields: ["reqId", "method", "url", "headers", "query", "params", "duration"]
   },
+  port: 80,
   swagger: {
     path: "/api-docs"
   },
@@ -27,10 +28,7 @@ const rootDir = __dirname;
   }
 })
 export class Server extends ServerLoader {
-  /**
-   * This method let you configure the middleware required by your application to works.
-   * @returns {Server}
-   */
+  
   $onMountingMiddlewares(): void | Promise<any> {
     this
       .use(GlobalAcceptMimesMiddleware)

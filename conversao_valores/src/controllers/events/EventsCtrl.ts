@@ -22,10 +22,6 @@ export class EventsCtrl {
   private AUTO_INC = 5;
   private events: Event[] = require("../../../resources/events.json");
 
-  /**
-   *
-   * @returns {null}
-   */
   @Get("/:id")
   async get(@Required() @PathParams("calendarId") calendarId: string,
             @PathParams("id") id: string): Promise<Event> {
@@ -38,10 +34,6 @@ export class EventsCtrl {
     throw new NotFound("event not found");
   }
 
-  /**
-   *
-   * @returns {null}
-   */
   @Get("/:id/tasks")
   async getTasks(@Required() @PathParams("calendarId") calendarId: string,
                  @PathParams("id") id: string): Promise<Task[]> {
@@ -91,9 +83,6 @@ export class EventsCtrl {
     return event;
   }
 
-  /**
-   *
-   */
   @Delete("/:id")
   @Authenticated()
   @Status(204)
